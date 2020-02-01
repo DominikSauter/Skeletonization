@@ -15,7 +15,7 @@ import matplotlib.patches
 
 
 def main():
-    in_img_path = 'test_ml_comp_grey_framed'
+    in_img_path = 'test_ml_comp_grey_upsampled2.0_framed'
     out_img_bdb_path = 'skeletonize_fuzzy_BDB'
     out_img_msdb_path = 'skeletonize_fuzzy_MSDB'
     out_img_flux_skel_path = 'skeletonize_flux'
@@ -85,7 +85,7 @@ def main():
         print(np.nanmin(fluxMap))
         # fluxBWThreshold = (np.nanmax(fluxMap) - np.nanmedian(fluxMap)) * 0.30 + np.nanmedian(fluxMap)
         # fluxBWThreshold = (np.nanmax(fluxMap) - np.nanmean(fluxMap)) * 0.15 + np.nanmean(fluxMap)
-        fluxBWThreshold = (np.nanmax(fluxMap) - np.nanmean(fluxMap)) * 0.6 + np.nanmean(fluxMap)
+        fluxBWThreshold = (np.nanmax(fluxMap) - np.nanmean(fluxMap)) * 0.075 + np.nanmean(fluxMap)
         print(fluxBWThreshold)
         with np.errstate(divide='ignore',invalid='ignore'):
             fluxThin = thin(fluxMap>fluxBWThreshold)
@@ -93,7 +93,7 @@ def main():
         # plt.imshow(np.nan_to_num(fluxMap>fluxBWThreshold))
         # plt.title('fluxMap>fluxBWThreshold Map')
         # plt.show()
-        # # continue
+        # continue
         #
         # plt.imshow(np.nan_to_num(fluxThin))
         # plt.title('FluxThin Map')
